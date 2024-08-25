@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 const client = createClient({
     space: 't1hbhgf9gybb',
     environment: 'master',
-    accessToken: 'WyrkS7g-7wXsb422QhM4E3gNJlthek_Q9xQmoW9fHL0',
+    accessToken: import.meta.env.VITE_API_KEY,
 });
 
 export const useFetchProjects = () => {
@@ -19,11 +19,11 @@ export const useFetchProjects = () => {
                 const img = image?.fields?.file?.url;
                 return {title, url, id, img};
             });
-            console.log(response);
+            // console.log(response);
             setLoading(false);
             setProjects(projects);
         } catch (e) {
-            console.log(e);
+            // console.log(e);
             setLoading(false);
         }
     }
